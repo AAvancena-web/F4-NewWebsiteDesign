@@ -34,15 +34,32 @@ $services = f4_services();
 			</ul>
 		</div>
 
-		<div class="hero__form">
-			<div class="form-card form-card--hero" id="quote">
-				<div class="form-card__head">
-					<span class="form-card__badge">Free quote</span>
-					<h2 class="h3">Get your free quote</h2>
-					<p>Tell us about your site and we will get back to you with the next steps.</p>
-				</div>
-				<?php f4_form( 'quote', array( 'compact' => true ) ); ?>
+		<div class="hero__visual">
+			<div class="hero-mosaic">
+				<?php foreach ( $services as $slug => $service ) : ?>
+					<a class="hero-tile" href="<?php echo esc_url( f4_service_url( $slug ) ); ?>">
+						<img src="<?php echo esc_url( f4_img( $service['image'] ) ); ?>" alt="F4 <?php echo esc_attr( $service['title'] ); ?> team at work" width="600" height="750">
+						<span class="hero-tile__label">
+							<span class="hero-tile__icon"><?php echo f4_icon( $service['icon'] ); // phpcs:ignore ?></span>
+							<span><?php echo esc_html( $service['title'] ); ?></span>
+							<?php echo f4_icon( 'arrow-up-right', 'hero-tile__arrow' ); // phpcs:ignore ?>
+						</span>
+					</a>
+				<?php endforeach; ?>
 			</div>
+
+			<div class="hero-seal" aria-hidden="true">
+				<svg viewBox="0 0 120 120">
+					<defs><path id="seal-circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"></path></defs>
+					<text><textPath href="#seal-circle" textLength="284" lengthAdjust="spacing">ONE TEAM &#8226; ONE STANDARD &#8226; NEW ZEALAND &#8226; </textPath></text>
+				</svg>
+				<span class="hero-seal__core">F4</span>
+			</div>
+
+			<a class="hero-call" href="<?php echo esc_attr( f4_phone_href() ); ?>">
+				<span class="call-circle"><?php echo f4_icon( 'phone' ); // phpcs:ignore ?></span>
+				<span class="hero-call__text"><small>Free quotes, call us free</small><strong><?php echo esc_html( f4_phone() ); ?></strong></span>
+			</a>
 		</div>
 	</div>
 </section>
