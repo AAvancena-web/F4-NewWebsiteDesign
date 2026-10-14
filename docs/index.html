@@ -416,6 +416,44 @@ html { color-scheme: light; }
 </section>
 
 <!-- FRANCHISE -->
+<section class="section section--dark testimonials" aria-labelledby="testimonials-title">
+	<div class="container">
+		<div class="section-head section-head--center" data-reveal>
+			<span class="eyebrow eyebrow--gold">Testimonials</span>			<h2 id="testimonials-title" class="h2">Hear it from our people.</h2>
+			<p class="lead">Real stories from the team behind every F4 job.</p>
+		</div>
+		<div class="testimonial-videos">
+			<figure class="video-card" data-reveal data-delay="0">
+				<video src="assets/video/testimonial-1.mp4" poster="assets/video/testimonial-1.jpg" preload="none" playsinline controls aria-label="F4 testimonial video 1"></video>
+				<button type="button" class="video-card__play" aria-label="Play testimonial video 1"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg></button>
+			</figure>
+			<figure class="video-card" data-reveal data-delay="1">
+				<video src="assets/video/testimonial-2.mp4" poster="assets/video/testimonial-2.jpg" preload="none" playsinline controls aria-label="F4 testimonial video 2"></video>
+				<button type="button" class="video-card__play" aria-label="Play testimonial video 2"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg></button>
+			</figure>
+			<figure class="video-card" data-reveal data-delay="2">
+				<video src="assets/video/testimonial-3.mp4" poster="assets/video/testimonial-3.jpg" preload="none" playsinline controls aria-label="F4 testimonial video 3"></video>
+				<button type="button" class="video-card__play" aria-label="Play testimonial video 3"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg></button>
+			</figure>
+			<figure class="video-card" data-reveal data-delay="3">
+				<video src="assets/video/testimonial-4.mp4" poster="assets/video/testimonial-4.jpg" preload="none" playsinline controls aria-label="F4 testimonial video 4"></video>
+				<button type="button" class="video-card__play" aria-label="Play testimonial video 4"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg></button>
+			</figure>
+		</div>
+	</div>
+	<script>
+	document.querySelectorAll('.video-card').forEach(function (card) {
+		var v = card.querySelector('video'), b = card.querySelector('.video-card__play');
+		b.addEventListener('click', function () { v.play(); });
+		v.addEventListener('play', function () {
+			card.classList.add('is-playing');
+			document.querySelectorAll('.video-card video').forEach(function (o) { if (o !== v) o.pause(); });
+		});
+		v.addEventListener('pause', function () { card.classList.remove('is-playing'); });
+	});
+	</script>
+</section>
+
 <section class="section franchise-band" aria-labelledby="franchise-title">
 	<div class="franchise-band__bg" aria-hidden="true">
 		<img src="assets/img/hero.webp" alt="" loading="lazy" data-parallax="0.12">
