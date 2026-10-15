@@ -830,6 +830,8 @@ body.has-recaptcha .to-top { --to-top-bottom: 92px; }
 	:root { --header-h: 76px; }
 	.topbar { display: none; }
 	.site-header.is-scrolled .topbar { margin-top: 0; }
+	/* backdrop-filter makes the header a containing block for fixed children, which traps the off-canvas nav inside the 76px header once scrolled. */
+	.site-header.is-scrolled { backdrop-filter: none; -webkit-backdrop-filter: none; }
 	.hero, .page-hero { padding-top: calc(var(--header-h) + clamp(40px, 6vw, 80px)); }
 
 	/* Off-canvas navigation */
